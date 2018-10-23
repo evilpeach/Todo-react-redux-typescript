@@ -28,7 +28,7 @@ class TodoList extends React.Component<StateProps, ownState> {
         {
           
           todos.todos.map((todo: Todo) => (
-            <li key={todo.id} onClick={() => this.props.onTodoClicked(todo.id)}
+            <li key={todo.id} // onClick={() => this.props.onTodoClicked(todo.id)}
             style={{ textDecoration: `${todo.status ? 'line-through' : ''}`, cursor: 'pointer'}}>
             {todo.title}
             </li>)
@@ -51,6 +51,6 @@ const mapDispatchToProps = {
   onTodoClicked: toggleTodo
 }
 
-const List = connect<StateFromProps, any, any>(, mapDispatchToProps)(TodoList);
+const List = connect<any, any, any>(null, mapDispatchToProps)(TodoList);
 
 export default List;
