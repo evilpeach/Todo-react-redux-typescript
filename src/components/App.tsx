@@ -5,8 +5,13 @@ import TodoForm from '../containers/TodoForm';
 
 export default class App extends React.Component {
     render() {
+        const bgStyle = {
+            margin: 'auto',
+            width: '50%',
+            padding: '10px',
+        }
         return (
-            <div>
+            <div style={bgStyle} >
                 <TodoForm />
                 <TodoOptions />
                 <TodoList />

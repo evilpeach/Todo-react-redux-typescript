@@ -41,15 +41,28 @@ export default class AddForm extends React.Component<DispathProps, State> {
 
   render() {
     const titleValid = (this.state.title) ? false : true;
-    const buttonStyle = 'background-color: white; color: blue; border: 2px solid blue;'
+    const textStyle = {
+      width: '100%',
+      padding: '8px 15px',
+      margin: '3px 0',
+      display: 'inline-block',
+    }
+
+    const buttonStyle = {
+      width: '100%',
+      color: 'black',
+      padding: '12px 20px',
+      margin: '15px 15px',
+      cursor: 'pointer',
+    }
   
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
           WHAT YOU WANT TO DO: 
-          <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+          <input style={textStyle} type="text" name="title" value={this.state.title} onChange={this.handleChange} />
         </label>
-        <input type="submit" disabled={titleValid} value="Submit" />
+        <input style={buttonStyle} type="submit" disabled={titleValid} value="Submit" />
       </form>
     );
   }

@@ -33,20 +33,21 @@ module.exports = {
                     }
                 ]
             },
-            // {
-            //     test: /\.css$/,
-            //     include: path.join(__dirname, 'src'),
-            //     use: [
-            //       'style-loader',
-            //       {
-            //         loader: 'typings-for-css-modules-loader',
-            //         options: {
-            //           modules: true,
-            //           namedExport: true
-            //         }
-            //       }
-            //     ]
-            // }
+            {
+                test: /\.css$/,
+                include: path.join(__dirname, 'src'),
+                use: [
+                  'style-loader',
+                  {
+                    loader: 'typings-for-css-modules-loader',
+                    options: {
+                      modules: true,
+                      namedExport: true,
+                      camelCase: true
+                    }
+                  }
+                ]
+            }
         ]
     },
     devtool: "source-map",
