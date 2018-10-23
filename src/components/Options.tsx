@@ -13,7 +13,7 @@ export default class Options extends React.Component<DispatchProps, State> {
     }
 
     clearDoneTodo = (): void => {
-        alert('Clear done to do list ');
+        // alert('Clear done to do list ');
         this.props.clearDoneTodo();
     }
 
