@@ -32,7 +32,21 @@ module.exports = {
                         loader: 'ts-loader',
                     }
                 ]
-            }
+            },
+            // {
+            //     test: /\.css$/,
+            //     include: path.join(__dirname, 'src'),
+            //     use: [
+            //       'style-loader',
+            //       {
+            //         loader: 'typings-for-css-modules-loader',
+            //         options: {
+            //           modules: true,
+            //           namedExport: true
+            //         }
+            //       }
+            //     ]
+            // }
         ]
     },
     devtool: "source-map",

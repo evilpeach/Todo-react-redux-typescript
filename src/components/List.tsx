@@ -1,22 +1,22 @@
 import React from 'react';
-import { Todo, Todos as State} from '../models/Todo';
-import { toggleTodo } from '../actions/todo';
-import { connect } from 'react-redux';
+import { Todo } from '../models/Todo';
 
-interface StateProps {
-  todos: State,
+export interface StateProps {
+  todos: Todo[]
 }
 
-interface DispatchProps {
-
+export interface DispatchProps {
+  onTodoClicked: (id: number) => any
 }
 
 interface ownState {
 
 }
 
-class TodoList extends React.Component<StateProps, ownState> {
-  constructor(props: StateProps){
+type Props = StateProps & DispatchProps;
+
+export default class List extends React.Component<Props, ownState> {
+  constructor(props: Props){
     super(props);
 
   }
@@ -26,31 +26,14 @@ class TodoList extends React.Component<StateProps, ownState> {
     return (
       <ul>
         {
-          
-          todos.todos.map((todo: Todo) => (
-            <li key={todo.id} // onClick={() => this.props.onTodoClicked(todo.id)}
-            style={{ textDecoration: `${todo.status ? 'line-through' : ''}`, cursor: 'pointer'}}>
-            {todo.title}
-            </li>)
-          )
-          
-        }
+        todos.map((todo: Todo) => (
+          <li key={todo.id} onClick={() => this.props.onTodoClicked(todo.id)}
+          style={{ textDecoration: `${todo.status ? 'line-through' : ''}`, cursor: 'pointer'}}>
+          {todo.title}
+          </li>)
+        )    
+      }
       </ul>
     )
   }
 }
-
-// const getTodosState = ((state: State) => state.todos)
-// const getTodos = createSelector([getTodosState], s => s.todos);
-
-const mapStateToProps = (state: State) => ({  
-  todos : state.todos
-})
-
-const mapDispatchToProps = {
-  onTodoClicked: toggleTodo
-}
-
-const List = connect<any, any, any>(null, mapDispatchToProps)(TodoList);
-
-export default List;

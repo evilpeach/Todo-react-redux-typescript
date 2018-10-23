@@ -1,9 +1,12 @@
 import { Todo } from '../models/Todo';
 
+const uuid = require('node-uuid');
+
 // create type by enum
 export enum ActionTypes {
   ADD = 'ADD',
-  TOGGLE = 'TOGGLE'
+  TOGGLE = 'TOGGLE',
+  DELETE_DONE = 'DELETE_DONE'
 }
 
 interface AddTodoAction {
@@ -20,7 +23,9 @@ interface ToggleTodoAction {
   }
 }
 
-let id = 0; // for next TODO's id
+interface DeleteDoneTodoAction {
+  type: ActionTypes.DELETE_DONE
+}
 
 // add new todo
 export const addTodo = (title: string): AddTodoAction => {
@@ -28,7 +33,7 @@ export const addTodo = (title: string): AddTodoAction => {
     type: ActionTypes.ADD,
     payload: {
       todo: {
-        id: id++,
+        id: uuid.v4(),
         title: title,
         status: false
       }
@@ -46,4 +51,10 @@ export const toggleTodo = (id: number): ToggleTodoAction => {
   }
 }
 
-export type Action = AddTodoAction | ToggleTodoAction;
+export const deleteDoneTodo = (): DeleteDoneTodoAction => {
+  return {
+    type: ActionTypes.DELETE_DONE
+  }
+}
+
+export type Action = AddTodoAction | ToggleTodoAction | DeleteDoneTodoAction;

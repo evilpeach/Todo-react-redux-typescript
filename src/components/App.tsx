@@ -1,18 +1,15 @@
 import React from 'react';
-import List from './List';
-import Form from './Form';
-
-// export interface HelloProps { 
-//     compiler: string; 
-//     framework: string; 
-// }
+import TodoList from '../containers/TodoList';
+import TodoOptions from '../containers/TodoOptions';
+import TodoForm from '../containers/TodoForm';
 
 export default class App extends React.Component {
     render() {
         return (
             <div>
-                <Form />
-                
+                <TodoForm />
+                <TodoOptions />
+                <TodoList />
             </div>
         );
     }

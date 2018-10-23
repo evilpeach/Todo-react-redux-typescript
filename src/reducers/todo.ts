@@ -1,12 +1,16 @@
-import { Todos } from '../models/Todo';
+import { Todo } from '../models/Todo';
 import { ActionTypes, Action } from '../actions/todo';
 
+export interface MyReduxState {
+  todos: Todo[]
+}
+
 // initialze state
-export const initialState: Todos = {
+const initialState: MyReduxState = {
   todos: []
 }
 
-export const rootReducer = (state: Todos = initialState, action: Action): Todos => {
+export const rootReducer = (state: MyReduxState = initialState, action: Action) => {
   switch(action.type) {
     case ActionTypes.ADD: {
       return {
@@ -21,6 +25,13 @@ export const rootReducer = (state: Todos = initialState, action: Action): Todos 
       return {
         ...state,
         todos: state.todos.map(todo => todo.id === toggleId ? {...todo, status: !todo.status } : todo)
+      }
+    }
+
+    case ActionTypes.DELETE_DONE: {
+      return {
+        ...state,
+        todos: state.todos.filter(todo => !todo.status)
       }
     }
 
