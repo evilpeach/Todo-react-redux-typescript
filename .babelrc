@@ -1,0 +1,8 @@
+{
+  "presets": [
+      ["es2015", { "modules": false }],
+      "react",
+      "env"
+  ],
+  "plugins": ["syntax-dynamic-import"]
+}
