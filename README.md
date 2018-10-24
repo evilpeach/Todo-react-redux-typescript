@@ -3,6 +3,9 @@
 How to install
   1. npm install
   
+How to run
+  1. npm run dev
+  
 How to use
 
   1. type what you want to list to TODOLIST
