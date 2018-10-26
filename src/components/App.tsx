@@ -1,7 +1,4 @@
 import React from 'react';
-// import TodoList from '../containers/TodoList';
-// import TodoOptions from '../containers/TodoOptions';
-// import TodoForm from '../containers/TodoForm';
 import Loadable from 'react-loadable';
 
 const TodoForm = Loadable({
