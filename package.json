@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --open --history-api-fallback",
-    "build": "sudo webpack --mode production --watch"
+    "build": "sudo webpack --mode production"
   },
   "author": "peach",
   "license": "ISC",
   "devDependencies": {
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
+    "@types/react-loadable": "^5.4.1",
     "@types/react-redux": "^6.0.9",
     "@types/redux-logger": "^3.0.6",
     "awesome-typescript-loader": "^5.2.1",
@@ -34,10 +35,10 @@
     "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
-    "@types/styled-components": "^4.0.1",
     "node-uuid": "^1.4.8",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-loadable": "^5.5.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.1"
   }
